@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Categories | CampusRent</title>
+  <link rel="stylesheet" href="style1.css" />
+</head>
+<body>
+
+ 
+  <header class="navbar">
+    <div class="container navbar-content">
+      <div class="logo">
+        <span class="logo-icon">🎓</span>
+        <span class="logo-text">CampusRent</span>
+      </div>
+      <nav class="nav-links" id="navLinks">
+        <a href="home1.html" class="nav-link">Home</a>
+        <a href="categories1.html" class="nav-link active">Categories</a>
+        <a href="how its work.html" class="nav-link">How It Works</a>
+         <a href="dashboard.owner.html" class="nav-link">Dashboard</a>
+        
+        
+      </nav>
+      <div class="auth-buttons">
+        <button class="btn-outline"onclick="window.location.href='login.html'">Login</button>
+        <button class="btn-primary"onclick="window.location.href='signup.html'">Sign Up</button>
+      </div>
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-title">Explore Categories</h1>
+      <p class="page-subtitle">Find the perfect item for your needs from our wide selection</p>
+    </div>
+  </section>
+
+  
+  <section class="filter-section">
+    <div class="container">
+      <div class="filter-bar">
+        <div class="filter-group">
+          <label class="filter-label">Category</label>
+          <select class="filter-select" id="categoryFilter">
+            <option>All Categories</option>
+            <option>Electronics</option>
+            <option>Academics</option>
+            <option>Lab & Project Items</option>
+            <option>Event Items</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label">Location</label>
+          <select class="filter-select">
+            <option>All Colleges</option>
+            <option>IPEC</option>
+            <option>IIT Delhi</option>
+            <option>IIT Bombay</option>
+            <option>IIT Madras</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label">Semester</label>
+          <select class="filter-select">
+            <option>Current Semester</option>
+            <option>Next Semester</option>
+            <option>Entire Year</option>
+          </select>
+        </div>
+        <button class="btn-primary filter-btn" onclick="applyCategoryFilter()">Apply Filters</button>
+      </div>
+    </div>
+  </section>
+
+ <section class="section items-section" data-category="Electronics">
+    <div class="container">
+      <div class="category-header">
+        <h2 class="category-section-title">
+          <span class="category-icon-inline"></span>
+          Electronics
+        </h2>
+        <span class="item-count">48 items available</span>
+      </div>
+      <div class="items-grid">
+        <div class="item-card">
+          <div class="item-badge">Popular</div>
+          <div class="item-image">
+            <div class="item-placeholder">💻</div>
+          </div>
+          <div class="item-content">
+            <h3 class="item-title">Dell Inspiron Laptop</h3>
+            <div class="item-meta">
+              <span class="item-location"> IIT Delhi</span>
+              <span class="item-rating">⭐ 4.8</span>
+            </div>
+            <p class="item-desc">i5 10th Gen, 8GB RAM, 256GB SSD</p>
+            <div class="item-footer">
+              <div class="item-price">
+                <span class="price-amount">₹1,000</span>
+                <span class="price-period">/month</span>
+              </div>
+              <button class="btn-primary btn-small">Explore</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="item-card">
+          <div class="item-image">
+            <div class="item-placeholder">📱</div>
+          </div>
+          <div class="item-content">
+            <h3 class="item-title">iPad 9th Generation</h3>
+            <div class="item-meta">
+              <span class="item-location"> IIT Bombay</span>
+              <span class="item-rating">⭐ 4.9</span>
+            </div>
+            <p class="item-desc">64GB, WiFi, Perfect for notes</p>
+            <div class="item-footer">
+              <div class="item-price">
+                <span class="price-amount">₹800</span>
+                <span class="price-period">/month</span>
+              </div>
+              <button class="btn-primary btn-small">Explore</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="item-card">
+          <div class="item-image">
+            <div class="item-placeholder">🖩</div>
+          </div>
+          <div class="item-content">
+            <h3 class="item-title">Scientific Calculator</h3>
+            <div class="item-meta">
+              <span class="item-location"> IIT Madras</span>
+              <span class="item-rating">⭐ 4.7</span>
+            </div>
+            <p class="item-desc">Casio FX-991EX, Engineering approved</p>
+            <div class="item-footer">
+              <div class="item-price">
+                <span class="price-amount">₹80</span>
+                <span class="price-period">/week</span>
+              </div>
+              <button class="btn-primary btn-small">Explore</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="item-card">
+          <div class="item-image">
+            <div class="item-placeholder"></div>
+          </div>
+          <div class="item-content">
+            <h3 class="item-title">HP LaserJet Printer</h3>
+            <div class="item-meta">
+              <span class="item-location"> BITS Pilani</span>
+              <span class="item-rating">⭐ 4.6</span>
+            </div>
+            <p class="item-desc">WiFi enabled, B&W and Color printing</p>
+            <div class="item-footer">
+              <div class="item-price">
+                <span class="price-amount">₹500</span>
+                <span class="price-period">/month</span>
+              </div>
+              <button class="btn-primary btn-small">Explore</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ACADEMICS SECTION -->
+  <section class="section items-section" data-category="Academics">
+    <div class="container">
+      <div class="category-header">
+        <h2 class="category-section-title">
+          <span class="category-icon-inline"></span>
+          Academics
+        </h2>
+        <span class="item-count">36 items available</span>
+      </div>
+      <div class="items-grid">
+        <div class="item-card">
+          <div class="item-badge">New</div>
+          <div class="item-image">
+            <div class="item-placeholder">📘</div>
+          </div>
+          <div class="item-content">
+            <h3 class="item-title">Engineering Mathematics</h3>
+            <div class="item-meta">
+              <span class="item-location"> IIT Delhi</span>
+              <span class="item-rating">⭐ 5.0</span>
+            </div>
+            <p class="item-desc">By R.K. Jain, Latest edition, Minimal marking</p>
+            <div class="item-footer">
+              <div class="item-price">
+                <span class="price-amount">₹200</span>
+                <span class="price-period">/semester</span>
+              </div>
+              <button class="btn-primary btn-small">Explore</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="item-card">
+          <div class="item-image">
+            <div class="item-placeholder">📖</div>
+          </div>
+          <div class="item-content">
+            <h3 class="item-title">Gray's Anatomy</h3>
+            <div class="item-meta">
+              <span class="item-location"> AIIMS Delhi</span>
+              <span class="item-rating">⭐ 4.9</span>
+            </div>
+            <p class="item-desc">41st Edition, Excellent condition</p>
+            <div class="item-footer">
+              <div class="item-price">
+                <span class="price-amount">₹400</span>
+                <span class="price-period">/semester</span>
+              </div>
+              <button class="btn-primary btn-small">Explore</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="item-card">
+          <div class="item-image">
+            <div class="item-placeholder">📚</div>
+          </div>
+          <div class="item-content">
+            <h3 class="item-title">GATE Preparation Books</h3>
+            <div class="item-meta">
+              <span class="item-location"> NIT Trichy</span>
+              <span class="item-rating">⭐ 4.8</span>
+            </div>
+            <p class="item-desc">Complete set for CSE, 2024 edition</p>
+            <div class="item-footer">
+              <div class="item-price">
+                <span class="price-amount">₹600</span>
+                <span class="price-period">/6 months</span>
+              </div>
+              <button class="btn-primary btn-small">Explore</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="item-card">
+          <div class="item-image">
+            <div class="item-placeholder">📕</div>
+          </div>
+          <div class="item-content">
+            <h3 class="item-title">Data Structures in C</h3>
+            <div class="item-meta">
+              <span class="item-location"> IIT Bombay</span>
+              <span class="item-rating">⭐ 4.7</span>
+            </div>
+            <p class="item-desc">By Yashavant Kanetkar, Like new</p>
+            <div class="item-footer">
+              <div class="item-price">
+                <span class="price-amount">₹150</span>
+                <span class="price-period">/semester</span>
+              </div>
+              <button class="btn-primary btn-small">Explore</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAB & PROJECT ITEMS SECTION -->
+  <section class="section items-section" data-category="Lab & Project Items">
+    <div class="container">
+      <div class="category-header">
+        <h2 class="category-section-title">
+          <span class="category-icon-inline"></span>
+          Lab & Project Items
+        </h2>
+        <span class="item-count">28 items available</span>
+      </div>
+      <div class="items-grid">
+        <div class="item-card">
+          <div class="item-badge">Trending</div>
+          <div class="item-image">
+            <div class="item-placeholder">🤖</div>
+          </div>
+          <div class="item-content">
+            <h3 class="item-title">Arduino Uno R3 Kit</h3>
+            <div class="item-meta">
+              <span class="item-location"> IIT Kharagpur</span>
+              <span class="item-rating">⭐ 4.9</span>
+            </div>
+            <p class="item-desc">Complete starter kit with sensors</p>
+            <div class="item-footer">
+              <div class="item-price">
+                <span class="price-amount">₹300</span>
+                <span class="price-period">/month</span>
+              </div>
+              <button class="btn-primary btn-small">Explore</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="item-card">
+          <div class="item-image">
+            <div class="item-placeholder">🧠</div>
+          </div>
+          <div class="item-content">
+            <h3 class="item-title">Raspberry Pi 4 (8GB)</h3>
+            <div class="item-meta">
+              <span class="item-location"> IIT Madras</span>
+              <span class="item-rating">⭐ 5.0</span>
+            </div>
+            <p class="item-desc">With case, power supply & SD card</p>
+            <div class="item-footer">
+              <div class="item-price">
+                <span class="price-amount">₹500</span>
+                <span class="price-period">/month</span>
+              </div>
+              <button class="btn-primary btn-small">Explore</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="item-card">
+          <div class="item-image">
+            <div class="item-placeholder">📦</div>
+          </div>
+          <div class="item-content">
+            <h3 class="item-title">Sensor Kit (20 pieces)</h3>
+            <div class="item-meta">
+              <span class="item-location"> NIT Surathkal</span>
+              <span class="item-rating">⭐ 4.8</span>
+            </div>
+            <p class="item-desc">Temperature, Motion, Ultrasonic & more</p>
+            <div class="item-footer">
+              <div class="item-price">
+                <span class="price-amount">₹250</span>
+                <span class="price-period">/month</span>
+              </div>
+              <button class="btn-primary btn-small">Explore</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="item-card">
+          <div class="item-image">
+            <div class="item-placeholder">🔌</div>
+          </div>
+          <div class="item-content">
+            <h3 class="item-title">Breadboard & Jumper Wires</h3>
+            <div class="item-meta">
+              <span class="item-location"> BITS Goa</span>
+              <span class="item-rating">⭐ 4.6</span>
+            </div>
+            <p class="item-desc">830 points breadboard with 200 wires</p>
+            <div class="item-footer">
+              <div class="item-price">
+                <span class="price-amount">₹100</span>
+                <span class="price-period">/month</span>
+              </div>
+              <button class="btn-primary btn-small">Explore</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <div class="footer-logo">
+            <span class="logo-icon">🎓</span>
+            <span class="logo-text">CampusRent</span>
+          </div>
+          <p class="footer-desc">Making college life affordable, one rental at a time.</p>
+          <div class="social-links">
+            <a href="#" class="social-link">📘</a>
+            <a href="#" class="social-link">🐦</a>
+            <a href="#" class="social-link">📷</a>
+            <a href="#" class="social-link">💼</a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4 class="footer-title">Support</h4>
+          <ul class="footer-links">
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="help.html">Help Center</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4 class="footer-title">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="pri1.html">Privarcy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <copyright>© 2026 CampusRent. All rights reserved.</copyright>
+        
+      </div>
+    </div>
+  </footer>
+
+ 
+
+  <script src="script1.js"></script>
+</body>
+</html>

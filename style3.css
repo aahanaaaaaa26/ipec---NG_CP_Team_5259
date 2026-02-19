@@ -1,0 +1,85 @@
+/* Terms & Conditions Section */
+
+
+/*.terms-banner{
+  background-image: url("bgbgbg.jpeg");  
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  padding: 50px 30px;
+
+  color: rgb(8, 7, 7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}*/
+.terms-bg{
+  padding: 30px 20px;
+    text-align: center;
+
+}
+  /*bg m agar blur krna hai toh url se phle liner gradient daldo(rgba(255,255,255,0.65),rgba(255,255,255,0.65)),*/
+  body{
+     background-image: url("pri1.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+ 
+  }
+ /* .terms-banner {
+    background: linear-gradient(to right, #2e7d32, #66bb6a);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}*/
+
+/*.terms-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  font-family: Arial, sans-serif;
+}*/
+.terms-container {
+  background: rgba(255, 255, 255, 0.7); /* white with transparency */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  backdrop-filter: blur(6px); /* glass effect */
+  -webkit-backdrop-filter: blur(6px);
+  max-width: 900px;
+  margin: 40px auto;
+}
+.terms-container h2 {
+  text-align: center;
+  color: #1fd00b;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.terms-container ul {
+  list-style-type: disc;
+  padding-left: 25px;
+}
+
+.terms-container ul li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+  font-size: 20px;
+  color: #333;
+}
+
+.terms-container ul li::marker {
+  color: #0bf513; 
+}
+
+.terms-container ul li:hover {
+  color: #1e3a8a;
+  cursor: default;
+}
+

@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQs | CampusRent</title>
+    <link rel="stylesheet" href="style1.css" />
+</head>
+
+<body>
+
+
+    <header class="navbar">
+        <div class="container navbar-content">
+            <div class="logo">
+                <span class="logo-icon">🎓</span>
+                <span class="logo-text">Campus<span class="logo-accent">Rent</span></span>
+            </div>
+            <nav class="nav-links" id="navLinks">
+                <a href="home1.html" class="nav-link">Home</a>
+                <a href="categories1.html" class="nav-link">Categories</a>
+                <a href="how its work.html" class="nav-link">How it Works</a>
+                 <a href="dashboard.owner.html" class="nav-link">Dashboard</a>
+                <a href="faqs.html" class="nav-link active">FAQs</a>
+            </nav>
+            <div class="auth-buttons">
+                <button class="btn-login" onclick="window.location.href='login.html'">Login</button>
+                <button class="btn-signup" onclick="window.location.href='signup.html'">Sign Up</button>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+  
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Frequently Asked Questions</h1>
+            <p class="page-subtitle">Find answers to common questions about CampusRent</p>
+            <div class="faq-search">
+                <input type="text" id="faqSearchInput" placeholder="Search for answers..." class="faq-search-input" />
+                <button class="faq-search-btn"> Search</button>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="section faq-categories-section">
+        <div class="container">
+            <div class="faq-category-tabs">
+                <button class="faq-category-tab active" data-category="all">All Questions</button>
+                <button class="faq-category-tab" data-category="getting-started"> Getting Started</button>
+                <button class="faq-category-tab" data-category="renting"> Renting Items</button>
+                <button class="faq-category-tab" data-category="lending"> Lending Items</button>
+                <button class="faq-category-tab" data-category="payments"> Payments</button>
+                <button class="faq-category-tab" data-category="safety"> Safety & Trust</button>
+            </div>
+        </div>
+    </section>
+
+   
+    <section class="section faqs-content-section">
+        <div class="container">
+            <div class="faq-layout">
+                
+                <div class="faq-main">
+
+                 
+                    <div class="faq-category-block" data-category="getting-started">
+                        <h2 class="faq-category-title"> Getting Started</h2>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>How do I sign up for CampusRent?</h3>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Signing up is easy! Click the "Sign Up" button in the top right corner, enter your
+                                    college email address, and verify your student status. You'll receive a verification
+                                    email to confirm your account. Once verified, you can immediately start browsing and
+                                    renting items from fellow students on your campus.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Who can use CampusRent?</h3>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>CampusRent is exclusively for college and university students. You need a valid
+                                    college email address (.edu or official college domain) to create an account. This
+                                    ensures a safe, trusted community of verified students.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Is CampusRent free to use?</h3>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes! Creating an account and browsing items is completely free. We only charge a
+                                    small service fee (5-10%) on successful rental transactions to maintain the platform
+                                    and ensure quality service.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Which colleges are supported?</h3>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We currently support over 50 major colleges and universities across India, including
+                                    all IITs, NITs, BITS, and many other institutions. If your college isn't listed,
+                                    contact us and we'll work on adding it!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                  
+                    <div class="faq-category-block" data-category="renting">
+                        <h2 class="faq-category-title"> Renting Items</h2>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>How do I rent an item?</h3>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Browse or search for the item you need, click on it to view details, select your
+                                    rental duration, and click "Book Now". You'll be prompted to make payment through
+                                    our secure gateway. Once confirmed, you can coordinate with the lender for pickup
+                                    directly through our in-app messaging system.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>What rental durations are available?</h3>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Rental durations are flexible and set by individual lenders. Common options include
+                                    daily, weekly, monthly, or semester-long rentals. You can also request custom
+                                    durations by messaging the lender directly.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Can I extend my rental period?</h3>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes! If you need the item for longer, you can request an extension from your
+                                    dashboard. The lender must approve the extension, and additional payment will be
+                                    calculated based on the extended duration. It's best to request extensions before
+                                    your rental period ends.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>What if the item is damaged or doesn't work?</h3>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Inspect the item during pickup and report any existing damage immediately through the
+                                    app. If you discover issues after pickup, contact the lender and our support team
+                                    within 24 hours. We'll help mediate and find a fair solution, which may include
+                                    partial refunds or replacements.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>How do I return an item?</h3>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Coordinate a return time and location with the lender through the messaging feature.
+                                    Meet on campus, return the item in the same condition you received it, and both
+                                    parties confirm the return in the app. You'll then be able to rate your experience.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-category-block" data-category="lending">
+                        <h2 class="faq-category-title"> Lending Items</h2>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>How do I list an item for rent?</h3>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Click "List New Item" from your dashboard, upload clear photos, add a detailed
+                                    description, set your rental price and duration options, and specify availability.
+                                    Our team reviews all listings to ensure quality and appropriateness before they go
+                                    live.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>What items can I rent out?</h3>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>You can rent textbooks, electronics (laptops, tablets, calculators), lab equipment,
+                                    project kits (Arduino, Raspberry Pi), sports equipment, musical instruments,
+                                    cameras, and other college-related items. Items must be legal, safe, and in good
+                                    working condition. Prohibited items include weapons, illegal substances, and
+                                    counterfeit goods.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>How much can I earn by lending?</h3>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Earnings depend on your item, pricing, and rental frequency. Many students earn
+                                    ₹2,000-10,000 per semester by renting out textbooks, electronics, and lab equipment.
+                                    You set your own prices based on item value and market demand. After our service
+                                    fee, you receive 90-95% of the rental amount.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>What if a renter damages my item?</h3>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We recommend collecting a security deposit (refundable) for valuable items. If damage
+                                    occurs beyond normal wear and tear, you can file a claim through our platform. We'll
+                                    review the case and facilitate compensation from the security deposit or help you
+                                    seek resolution. For high-value items, consider our optional damage protection
+                                    insurance.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Can I remove or edit my listing?</h3>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, you can edit listing details, pricing, or availability anytime from your
+                                    dashboard. You can also mark items as unavailable or delete listings. However, you
+                                    cannot remove active rentals - you must complete those commitments first.</p>
+                            </div>
+                        </div>
+                    </div>
+
+               
+                    <div class="faq-category-block" data-category="payments">
+                        <h2 class="faq-category-title"> Payments & Pricing</h2>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>How do payments work?</h3>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>All payments are processed securely through our platform using trusted payment
+                                    gateways (Razorpay, PayTM, UPI). We hold the payment in escrow until you confirm
+                                    successful pickup. Once confirmed, we release payment to the lender (minus our
+                                    service fee). This protects both renters and lenders.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>What payment methods are accepted?</h3>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We accept credit cards, debit cards, UPI (Google Pay, PhonePe, PayTM), net banking,
+                                    and digital wallets. Choose your preferred method during checkout. All transactions
+                                    are encrypted and secure.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Is there a security deposit?</h3>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Security deposits are optional and set by individual lenders, typically for
+                                    high-value items like laptops or cameras. The deposit is fully refundable upon
+                                    successful return of the item in good condition. It's held separately and
+                                    automatically refunded within 2-3 business days after return confirmation.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>What is the service fee?</h3>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We charge a 5-10% service fee on the rental amount to maintain the platform, provide
+                                    customer support, and ensure security. This fee is automatically included in the
+                                    total amount shown at checkout. There are no hidden charges.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Can I get a refund?</h3>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Refund policies depend on the timing: Full refund if cancelled 24+ hours before
+                                    pickup, 50% refund for 12-24 hours notice, no refund for cancellations within 12
+                                    hours of pickup. If the lender cancels or the item is significantly different from
+                                    the listing, you'll receive a full refund.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                    <div class="faq-category-block" data-category="safety">
+                        <h2 class="faq-category-title"> Safety & Trust</h2>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>How do you verify users?</h3>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>All users must register with a valid college email address. We send a verification
+                                    email to confirm the address belongs to a current student. Additionally, we verify
+                                    college ID cards for enhanced trust. Users can build reputation through ratings and
+                                    reviews from completed transactions.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Is it safe to meet strangers on campus?</h3>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Always meet in public, well-lit areas on campus (library, cafeteria, main quad).
+                                    Bring a friend if you're uncomfortable. Never share personal information like your
+                                    home address or room number. Trust your instincts - if something feels off, cancel
+                                    the transaction and report it to our team.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>What if I encounter a problem or scam?</h3>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Report any suspicious activity, scams, or problematic users immediately through the
+                                    "Report" button on their profile or listings. Our team investigates all reports
+                                    within 24 hours and takes appropriate action, including warnings, suspensions, or
+                                    permanent bans. We take community safety seriously.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>How does the rating system work?</h3>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>After each transaction, both renters and lenders can rate each other on a 5-star
+                                    scale and leave written reviews. Ratings appear on user profiles to help others make
+                                    informed decisions. Consistently low-rated users may face account restrictions. Be
+                                    honest but respectful in your reviews.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>What data do you collect and how is it used?</h3>
+                                <span class="faq-toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We collect necessary information like name, email, college, and payment details to
+                                    operate the platform. We never sell your data to third parties. All data is
+                                    encrypted and stored securely. You can review our detailed Privacy Policy for
+                                    complete information about data collection, usage, and your rights.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            
+                <aside class="faq-sidebar">
+                    <div class="faq-help-card">
+                        <h3>Still Have Questions?</h3>
+                        <p>Can't find the answer you're looking for? Our support team is here to help!</p>
+                        <button class="btn-contact-support">Contact Support</button>
+                    </div>
+
+                    <div class="faq-quick-links">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="how-it-works.html"> How It Works</a></li>
+                            <li><a href="#"> Pricing Guide</a></li>
+                            <li><a href="#"> Safety Tips</a></li>
+                            <li><a href="#"> Terms & Conditions</a></li>
+                            <li><a href="#"> Privacy Policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="faq-popular">
+                        <h4>Most Popular Questions</h4>
+                        <ul>
+                            <li><a href="#">How do I sign up?</a></li>
+                            <li><a href="#">Is there a security deposit?</a></li>
+                            <li><a href="#">Can I extend my rental?</a></li>
+                            <li><a href="#">How do refunds work?</a></li>
+                            <li><a href="#">How to report issues?</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Get Started?</h2>
+                <p class="cta-subtitle">Join thousands of students saving money through smart renting</p>
+                <div class="cta-buttons">
+                    <button class="btn-primary btn-large btn-cta" onclick="window.location.href='signup.html'">Create
+                        Account</button>
+                    <button class="btn-secondary btn-large" onclick="window.location.href='how its work.html'">Learn
+                        More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <span class="logo-icon">🎓</span>
+                        <span class="logo-text">Campus<span class="logo-accent">Rent</span></span>
+                    </div>
+                    <p class="footer-desc">Making college life affordable, one rental at a time.</p>
+                    <p class="footer-copyright">© 2025 CampusRent. All rights reserved.</p>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="contactus.html">Contact Us</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="#">Help Center</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-icon"></a>
+                <a href="#" class="social-icon"></a>
+                <a href="#" class="social-icon"></a>
+                <a href="#" class="social-icon">▶</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="botIcon">🤖</div>
+
+<div id="chatbot">
+    <div class="header">
+        College Campus Bot
+        <span id="closeBtn">✖</span>
+    </div>
+    <div id="chatBody"></div>
+</div>
+
+    <script src="script1.js"></script>
+
+    <script src="script.js"></script>
+    <script>
+      
+        document.querySelectorAll('.faq-category-tab').forEach(tab => {
+            tab.addEventListener('click', function () {
+                document.querySelectorAll('.faq-category-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                const category = this.getAttribute('data-category');
+                const blocks = document.querySelectorAll('.faq-category-block');
+
+                if (category === 'all') {
+                    blocks.forEach(block => block.style.display = 'block');
+                } else {
+                    blocks.forEach(block => {
+                        if (block.getAttribute('data-category') === category) {
+                            block.style.display = 'block';
+                        } else {
+                            block.style.display = 'none';
+                        }
+                    });
+                }
+            });
+        });
+
+      
+        document.getElementById('faqSearchInput').addEventListener('input', function () {
+            const searchTerm = this.value.toLowerCase();
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question h3').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer p').textContent.toLowerCase();
+
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+     
+        document.querySelector('.btn-contact-support')?.addEventListener('click', function () {
+            showNotification('Opening support chat...', 'info');
+        });
+    </script>
+
+ 
+</body>
+
+</html>

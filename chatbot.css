@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+}
+
+/* Robot Icon */
+#botIcon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 55px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* Chatbot Box */
+#chatbot {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 330px;
+    height: 440px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #0b5ed7, #084298);
+    color: #fff;
+    padding: 12px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Close */
+#closeBtn {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Body */
+#chatBody {
+    flex: 1;
+    padding: 18px;
+    overflow-y: auto;
+    background: #fafafa;
+}
+
+#chatBody p {
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Options */
+.option {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: none;
+    background: #e9ecef;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.option:hover {
+    background: #d6d8db;
+}
+
+/* Stars */
+#stars {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.star {
+    font-size: 32px;
+    cursor: pointer;
+    color: #ccc;
+}
+
+.star.active {
+    color: gold;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, #0b5ed7, #084298);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Mobile */
+@media(max-width:480px) {
+    #chatbot {
+        width: 95%;
+        right: 2.5%;
+        height: 85%;
+    }
+}

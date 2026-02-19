@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Dashboard | CampusRent</title>
+  <link rel="stylesheet" href="style2.css" />
+  <link rel="stylesheet" href="style1.css">
+</head>
+
+<body class="dashboard-page">
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar dashboard-navbar">
+  <div class="container navbar-content">
+    <div class="logo">
+      <span class="logo-icon">🎓</span>
+      <span class="logo-text">Campus<span class="logo-accent">Rent</span></span>
+    </div>
+
+    <nav class="nav-links">
+      <a href="home1.html" class="nav-link">Home</a>
+      <a href="categories1.html" class="nav-link">Categories</a>
+      <a href="how its work.html" class="nav-link">How it Works</a>
+    </nav>
+
+    <div class="dashboard-actions">
+      <div class="user-profile-nav">
+        <div class="user-info-nav">
+          <span class="user-name" id="navUserName">User</span>
+          <span class="user-college" id="navUserCollege">(College)</span>
+        </div>
+      </div>
+      <button onclick="logoutUser()" class="btn-action btn-danger">Logout
+        <button class="btn-outline-green" onclick="switchToOwnerDashboard()">
+  Switch to Owner
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= DASHBOARD LAYOUT ================= -->
+<div class="dashboard-layout">
+
+<!-- ================= SIDEBAR ================= -->
+<aside class="dashboard-sidebar">
+  <div class="sidebar-content">
+
+    <!-- Profile Card -->
+    <div class="sidebar-profile-card">
+      <h3 class="profile-name" id="sidebarUserName">User</h3>
+      <p class="profile-college" id="sidebarUserCollege">🏛️ College</p>
+    </div>
+
+    <!-- Profile Details -->
+    <div class="sidebar-section">
+      <h4 class="sidebar-section-title">Profile</h4>
+      <div class="profile-details">
+        <div class="profile-detail-item">
+          <span class="detail-icon">👤</span>
+          <span class="detail-text" id="sidebarUserEmail">email@example.com</span>
+        </div>
+        <div class="profile-detail-item">
+          <span class="detail-icon">📍</span>
+          <span class="detail-text" id="sidebarUserCollegeText">College</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wallet Section -->
+    <div class="sidebar-wallet">
+      <h4 class="sidebar-section-title">💳 My Wallet</h4>
+      <div class="wallet-card">
+        <div class="wallet-label">Available Balance</div>
+        <div class="wallet-amount">₹<span id="walletBalance">1,500</span></div>
+        <button class="btn-add-money" onclick="openAddMoneyModal()">+ Add Money</button>
+      </div>
+    </div>
+
+  </div>
+</aside>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main class="dashboard-main">
+  <div class="dashboard-container">
+
+    <!-- Welcome Section -->
+    <div class="dashboard-header">
+      <div>
+        <h1 class="dashboard-welcome">
+          Welcome back, <span id="welcomeUserName">User</span>!
+        </h1>
+        <p class="dashboard-subtitle">
+          Browse and rent items from your campus
+        </p>
+      </div>
+    </div>
+
+    <!-- ================= AVAILABLE ITEMS ================= -->
+    <div class="section-header-dash">
+      <h2>Available Items to Rent</h2>
+    </div>
+
+    <div id="availableItemsContainer" class="rentals-list">
+      <!-- Items will be loaded dynamically -->
+    </div>
+
+    <!-- ================= MY ACTIVE RENTALS ================= -->
+    <div class="section-header-dash">
+      <h2>My Active Rentals</h2>
+    </div>
+
+    <div id="activeRentalsContainer" class="rentals-list">
+      <!-- User rented items will load here -->
+    </div>
+
+  </div>
+</main>
+</div>
+
+<!-- ================= WALLET SCRIPT ================= -->
+
+<!-- ADD MONEY MODAL -->
+<div id="addMoneyModal" class="modal" style="display:none;">
+  <div class="modal-content wallet-modal">
+    <div class="modal-header">
+      <h2>💳 Add Money to Wallet</h2>
+      <span class="modal-close" onclick="closeAddMoneyModal()">&times;</span>
+    </div>
+
+    <div class="modal-body">
+
+      <div class="current-balance-display">
+        <span>Current Balance:</span>
+        <span class="balance-amount">
+          ₹<span id="modalCurrentBalance">0</span>
+        </span>
+      </div>
+
+      <div class="amount-selection">
+        <label>Select Amount</label>
+
+        <div class="quick-amounts">
+          <button onclick="selectAmount(500)">₹500</button>
+          <button onclick="selectAmount(1000)">₹1000</button>
+          <button onclick="selectAmount(2000)">₹2000</button>
+        </div>
+
+        <input 
+          type="number" 
+          id="customAmount" 
+          placeholder="Enter custom amount" 
+          min="100"
+        />
+      </div>
+
+      <button class="btn-proceed-payment" onclick="processAddMoney()">
+        Proceed to Add
+      </button>
+
+    </div>
+  </div>
+</div>
+
+
+<script src="wallet.js"></script>
+<script src="script1.js"></script>
+
+</body>
+</html>

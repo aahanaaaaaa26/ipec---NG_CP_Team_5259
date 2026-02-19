@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CampusRent | Rent Smart in College</title>
+  <link rel="stylesheet" href="style1.css" />
+</head>
+
+<body>
+<header class="navbar">
+    <div class="container navbar-content">
+      <div class="logo">
+        <span class="logo-icon">🎓</span>
+        <span class="logo-text">CampusRent</span>
+      </div>
+      <nav class="nav-links" id="navLinks">
+        <a href="home1.html" class="nav-link active">Home</a>
+        <a href="categories1.html" class="nav-link">Categories</a>
+        <a href="how its work.html" class="nav-link">How It Works</a>
+        <a href="dashboard.owner.html" class="nav-link">Dashboard</a>
+        
+
+
+      </nav>
+      <div class="auth-buttons">
+        <button class="btn-outline" onclick="window.location.href='login.html'">Login</button>
+        <button class="btn-primary" onclick="window.location.href='signup.html'">Sign Up</button>
+      </div>
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            Rent Items from Seniors,<br>
+            <span class="highlight">Save Money</span> in College
+          </h1>
+          <p class="hero-subtitle">Borrow books, electronics, and project kits directly from seniors on your campus.
+            Smart renting for smart students.</p>
+               <div class="hero-cta">
+            <button class="btn-primary btn-large" onclick="goToCategories()">
+              <span>Explore Items</span>
+              <span class="btn-arrow">→</span>
+            </button>
+           <button class="btn-outline-green" onclick="handleBecomeLender()">
+  Become a Lender
+</button>
+
+          
+
+          </div>
+        </div>
+        <div class="hero-illustration">
+          <div class="floating-card card-1">
+            <div class="card-icon"></div>
+            <div class="card-text">💻Electronics</div>
+          </div>
+          <div class="floating-card card-2">
+            <div class="card-icon"></div>
+            <div class="card-text">📚Books</div>
+          </div>
+          <div class="floating-card card-3">
+            <div class="card-icon"></div>
+            <div class="card-text">📷Events</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </section>
+
+
+ <section class="section categories1-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Popular Categories</h2>
+        <p class="section-subtitle">Browse through various categories to find what you need</p>
+      </div>
+      <div class="category-grid">
+        <div class="category-card">
+          <div class="category-icon"></div>
+          <img src="https://images.emojiterra.com/google/noto-emoji/unicode-15/color/512px/1f5a5.png" alt="laptop emoji" class="category-icon">
+          <h3 class="category-title">Electronics</h3>
+          <p class="category-desc">Laptops, tablets, calculators, and more</p>
+          <div class="category-count">250+ items</div>
+        </div>
+        <div class="category-card">
+          <div class="category-icon"></div>
+          <img src="https://em-content.zobj.net/source/apple/354/books_1f4da.png" alt="laptop emoji" class="category-icon">
+          <br>
+          
+          <h3 class="category-title">Academics</h3>
+          <p class="category-desc">Engineering & medical books, prep materials</p>
+          <div class="category-count">180+ items</div>
+        </div>
+        <div class="category-card">
+          <div class="category-icon"></div>
+           <img src="https://emojis.wiki/thumbs/emojis/woman-scientist.webp" alt="laptop emoji" class="category-icon">
+           <br>
+           <br>
+           <br>
+          <h3 class="category-title">Lab & Project Items</h3>
+          <p class="category-desc">Arduino, Raspberry Pi, sensors, breadboards</p>
+          <div class="category-count">120+ items</div>
+        </div>
+        <div class="category-card">
+          <div class="category-icon"></div>
+           <img src="https://thumbs.dreamstime.com/b/calculator-sign-emoji-icon-illustration-maths-vector-symbol-emoticon-design-258733774.jpg" alt="laptop emoji" class="category-icon">
+          <h3 class="category-title">Event / Temporary Use</h3>
+           <p class="category-desc">Cameras, projectors, sound systems</p>
+          <div class="category-count">90+ items</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section dashboard-section">
+    <div class="container">
+      <div class="dashboard-content">
+        <div class="dashboard-image">
+          <div class="dashboard-mockup">
+            <div class="mockup-header">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="mockup-body">
+              <div class="mockup-sidebar"></div>
+              <div class="mockup-main">
+                <div class="mockup-item"></div>
+                <div class="mockup-item"></div>
+                <div class="mockup-item"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dashboard-text">
+          <h2 class="section-title">Your Personal Dashboard</h2>
+          <p class="section-subtitle">Manage all your rentals in one place with our intuitive dashboard</p>
+          <div class="features-list">
+            <div class="feature-item">
+              <span class="feature-icon"></span>
+              <div class="feature-content">
+                <h4>My Rented Items</h4>
+                <p>Track all your active and past rentals</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon"></span>
+              <div class="feature-content">
+                <h4>Search & Filter</h4>
+                <p>Find exactly what you need instantly</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon"></span>
+              <div class="feature-content">
+                <h4>Rental Duration</h4>
+                <p>Flexible rental periods from days to semesters</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon"></span>
+              <div class="feature-content">
+                <h4>Chat with Senior</h4>
+                <p>Direct messaging for quick communication</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon"></span>
+              <div class="feature-content">
+                <h4>Rate After Return</h4>
+                <p>Share your experience and help others</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon"></span>
+              <div class="feature-content">
+                <h4>Payment History</h4>
+                <p>Complete transaction records at your fingertips</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section how its work-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">Get started in just 4 simple steps</p>
+      </div>
+      <div class="steps-container">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-icon"></div>
+          <h3 class="step-title">Search for Item</h3>
+          <p class="step-desc">Browse through thousands of items listed by seniors in your college</p>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-icon"></div>
+          <h3 class="step-title">Book for Semester</h3>
+          <p class="step-desc">Choose your rental duration and confirm your booking instantly</p>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-icon"></div>
+          <h3 class="step-title">Pick Up & Enjoy</h3>
+          <p class="step-desc">Coordinate with the lender and collect your item on campus</p>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <div class="step-icon"></div>
+          <h3 class="step-title">Return After Use</h3>
+          <p class="step-desc">Return the item and rate your experience to help the community</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">5000+</div>
+          <div class="stat-label">Active Users</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">2500+</div>
+          <div class="stat-label">Items Listed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Colleges</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">₹10L+</div>
+          <div class="stat-label">Money Saved</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Ready to Start Saving?</h2>
+        <p class="cta-subtitle">Join thousands of students who are renting smart and saving money</p>
+        <button class="btn-primary btn-large btn-cta"  onclick="window.location.href='login.html'">Get Started Now</button>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <div class="footer-logo">
+            <span class="logo-icon">🎓</span>
+            <span class="logo-text">CampusRent</span>
+          </div>
+          <p class="footer-desc">Making college life affordable, one rental at a time.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"></a>
+            <a href="#" class="social-link"></a>
+            <a href="#" class="social-link"></a>
+            <a href="#" class="social-link"></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4 class="footer-title">Support</h4>
+          <ul class="footer-links">
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="help.html">Help Center</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4 class="footer-title">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="pri1.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <copyright>© 2026 CampusRent. All rights reserved.</copyright>
+      </div>
+    </div>
+  </footer>
+
+
+
+<div id="botIcon">🤖</div>
+
+<div id="chatbot" style="display:none;">
+  <div class="header">
+    College Campus Bot
+    <span id="closeBtn">✖</span>
+  </div>
+
+  <div id="chatBody" class="chat-body"></div>
+
+  <div class="chat-input-area">
+    <input type="text" id="chatInput" placeholder="Ask something..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+
+
+  <script src="script1.js"></script>
+
+</body>
+
+</html>

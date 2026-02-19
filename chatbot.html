@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Campus Bot</title>
+    <link rel="stylesheet" href="chatbot.css">
+</head>
+
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+}
+
+/* Robot Icon */
+#botIcon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 55px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* Chatbot Box */
+#chatbot {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 330px;
+    height: 440px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #0b5ed7, #084298);
+    color: #fff;
+    padding: 12px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Close */
+#closeBtn {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Body */
+#chatBody {
+    flex: 1;
+    padding: 18px;
+    overflow-y: auto;
+    background: #fafafa;
+}
+
+#chatBody p {
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Options */
+.option {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: none;
+    background: #e9ecef;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.option:hover {
+    background: #d6d8db;
+}
+
+/* Stars */
+#stars {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.star {
+    font-size: 32px;
+    cursor: pointer;
+    color: #ccc;
+}
+
+.star.active {
+    color: gold;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, #0b5ed7, #084298);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Mobile */
+@media(max-width:480px) {
+    #chatbot {
+        width: 95%;
+        right: 2.5%;
+        height: 85%;
+    }
+}
+</style>
+<body>
+
+
+<div id="botIcon">🤖</div>
+
+<div id="chatbot">
+    <div class="header">
+        College Campus Bot
+        <span id="closeBtn">✖</span>
+    </div>
+    <div id="chatBody"></div>
+</div>
+
+<script src="chatbot.js">
+    const botIcon = document.getElementById("botIcon");
+const chatbot = document.getElementById("chatbot");
+const chatBody = document.getElementById("chatBody");
+const closeBtn = document.getElementById("closeBtn");
+
+/* Open chatbot */
+botIcon.onclick = () => {
+    chatbot.style.display = "flex";
+    start();
+};
+
+/* Close chatbot manually */
+closeBtn.onclick = () => {
+    chatbot.style.display = "none";
+};
+
+/* Render helper */
+function render(content) {
+    chatBody.innerHTML = content;
+}
+
+/* ================= START PAGE ================= */
+function start() {
+    render(`
+        <p><b>How may I help you?</b></p>
+
+        <button class="option" onclick="rentQ1()">1. Rent Service</button>
+        <button class="option" onclick="buyQ1()">2. Buy Service</button>
+        <button class="option" onclick="sellQ1()">3. Sell Service</button>
+        <button class="option" onclick="exitPage()">Exit</button>
+    `);
+}
+
+/* ================= RENT FLOW ================= */
+function rentQ1() {
+    render(`
+        <p><b>How long do you want to rent the item?</b></p>
+        <button class="option" onclick="rentQ2()">Short term</button>
+        <button class="option" onclick="rentQ2()">Long term</button>
+    `);
+}
+
+function rentQ2() {
+    render(`
+        <p><b>Is the item required urgently?</b></p>
+        <button class="option" onclick="endMessage()">Yes</button>
+        <button class="option" onclick="endMessage()">No</button>
+    `);
+}
+
+/* ================= BUY FLOW ================= */
+function buyQ1() {
+    render(`
+        <p><b>Are you looking for a new or used item?</b></p>
+        <button class="option" onclick="buyQ2()">New</button>
+        <button class="option" onclick="buyQ2()">Used</button>
+    `);
+}
+
+function buyQ2() {
+    render(`
+        <p><b>Do you want home delivery?</b></p>
+        <button class="option" onclick="endMessage()">Yes</button>
+        <button class="option" onclick="endMessage()">No</button>
+    `);
+}
+
+/* ================= SELL FLOW ================= */
+function sellQ1() {
+    render(`
+        <p><b>Is your item in working condition?</b></p>
+        <button class="option" onclick="sellQ2()">Yes</button>
+        <button class="option" onclick="sellQ2()">No</button>
+    `);
+}
+
+function sellQ2() {
+    render(`
+        <p><b>Do you want to sell it immediately?</b></p>
+        <button class="option" onclick="endMessage()">Yes</button>
+        <button class="option" onclick="endMessage()">No</button>
+    `);
+}
+
+/* ================= END MESSAGE ================= */
+function endMessage() {
+    render(`
+        <p><b>Please go to home page then click on category and then select item</b></p>
+        <br>
+        <button class="option" onclick="exitPage()">Exit</button>
+    `);
+}
+
+/* ================= EXIT PAGE ================= */
+function exitPage() {
+    render(`
+        <p><b>If your issue is not resolved,please contact us at:</b><br>1234@gmail.com</p>
+
+        <p><b>Give your feedback</b></p>
+
+        <div id="stars">
+            <span class="star" onclick="rate(1)">★</span>
+            <span class="star" onclick="rate(2)">★</span>
+            <span class="star" onclick="rate(3)">★</span>
+            <span class="star" onclick="rate(4)">★</span>
+            <span class="star" onclick="rate(5)">★</span>
+        </div>
+
+        <button class="submit-btn" onclick="submitFeedback()">Submit</button>
+    `);
+}
+
+/* ================= STAR RATING ================= */
+function rate(n) {
+    const stars = document.querySelectorAll(".star");
+    stars.forEach((star, index) => {
+        star.classList.toggle("active", index < n);
+    });
+}
+
+/* ================= SUBMIT FEEDBACK ================= */
+function submitFeedback() {
+    render(`<p><b>Thank you for reaching us ☺️</b></p>`);
+
+    // Auto close chatbot after 2 seconds
+    setTimeout(() => {
+        chatbot.style.display = "none";
+    }, 2000);
+}
+
+</script>
+</body>
+</html>

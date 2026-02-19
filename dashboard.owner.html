@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Owner Dashboard | CampusRent</title>
+  <link rel="stylesheet" href="style1.css">
+  <style>
+    /* ========================================
+       CSS VARIABLES
+    ======================================== */
+    :root {
+      --primary: #4caf50;
+      --primary-dark: #388e3c;
+      --secondary: #2196f3;
+      --accent-orange: #FF9800;
+      --accent-purple: #9c27b0;
+      --bg-light: #f5f7fa;
+      --text-dark: #1a1a1a;
+      --text-medium: #4a4a4a;
+      --text-light: #757575;
+      --border-color: #e0e0e0;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --spacing-sm: 1rem;
+      --spacing-md: 1.5rem;
+      --spacing-lg: 2rem;
+      --spacing-xl: 3rem;
+      --transition-base: 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+    }
+
+    /* ========================================
+       NAVBAR
+    ======================================== */
+    .navbar {
+      background: white;
+      padding: 1rem 0;
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .logo-icon { font-size: 1.75rem; }
+
+    .nav-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-base);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+    }
+
+    .btn-outline {
+      padding: 0.75rem 1.5rem;
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-base);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .user-profile {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 1rem;
+      background: #f5f5f5;
+      border-radius: var(--radius-sm);
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    /* ========================================
+       DASHBOARD LAYOUT
+    ======================================== */
+    .dashboard-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .dashboard-header {
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .dashboard-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .dashboard-subtitle {
+      color: var(--text-light);
+      font-size: 1.125rem;
+    }
+
+    /* ========================================
+       STATS OVERVIEW
+    ======================================== */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .stat-card {
+      background: white;
+      padding: var(--spacing-lg);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      transition: var(--transition-base);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--primary);
+    }
+
+    .stat-card.posted::before { background: var(--primary); }
+    .stat-card.rented::before { background: var(--secondary); }
+    .stat-card.sold::before { background: var(--accent-orange); }
+    .stat-card.available::before { background: var(--accent-purple); }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .stat-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: var(--text-light);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .stat-change {
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .stat-change.negative {
+      color: #f44336;
+    }
+
+    /* ========================================
+       TABS
+    ======================================== */
+    .tabs-container {
+      background: white;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .tabs-header {
+      display: flex;
+      border-bottom: 2px solid #f0f0f0;
+      padding: 0 var(--spacing-md);
+    }
+
+    .tab-btn {
+      padding: 1rem 2rem;
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid transparent;
+      font-weight: 600;
+      color: var(--text-medium);
+      cursor: pointer;
+      transition: var(--transition-base);
+      position: relative;
+    }
+
+    .tab-btn:hover {
+      color: var(--primary);
+    }
+
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    .tab-badge {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: var(--primary);
+      color: white;
+      padding: 0.125rem 0.5rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .tab-content {
+      padding: var(--spacing-lg);
+    }
+
+    .tab-pane {
+      display: none;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    /* ========================================
+       ITEM GRID
+    ======================================== */
+    .items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--spacing-md);
+    }
+
+    .item-card {
+      background: white;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: var(--transition-base);
+      border: 2px solid transparent;
+    }
+
+    .item-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary);
+    }
+
+    .item-image {
+      width: 100%;
+      height: 180px;
+      background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+
+    .item-details {
+      padding: var(--spacing-md);
+    }
+
+    .item-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .item-description {
+      color: var(--text-medium);
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .item-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .item-price {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .item-status {
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .status-available {
+      background: #e8f5e9;
+      color: var(--primary);
+    }
+
+    .status-rented {
+      background: #e3f2fd;
+      color: var(--secondary);
+    }
+
+    .status-sold {
+      background: #fff9c4;
+      color: var(--accent-orange);
+    }
+
+    .item-stats {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.875rem;
+      color: var(--text-light);
+    }
+
+    .item-stat {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .item-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .btn-small {
+      flex: 1;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-base);
+      font-size: 0.875rem;
+    }
+
+    .btn-edit {
+      background: #e3f2fd;
+      color: var(--secondary);
+    }
+
+    .btn-edit:hover {
+      background: var(--secondary);
+      color: white;
+    }
+
+    .btn-delete {
+      background: #ffebee;
+      color: #f44336;
+    }
+
+    .btn-delete:hover {
+      background: #f44336;
+      color: white;
+    }
+
+    .btn-view {
+      background: #f3e5f5;
+      color: var(--accent-purple);
+    }
+
+    .btn-view:hover {
+      background: var(--accent-purple);
+      color: white;
+    }
+
+    /* ========================================
+       EMPTY STATE
+    ======================================== */
+    .empty-state {
+      text-align: center;
+      padding: var(--spacing-xl) var(--spacing-md);
+      color: var(--text-light);
+    }
+
+    .empty-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      opacity: 0.5;
+    }
+
+    .empty-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--text-medium);
+    }
+
+    .empty-description {
+      margin-bottom: 1.5rem;
+    }
+
+    /* ========================================
+       MODAL
+    ======================================== */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+      padding: var(--spacing-md);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: var(--radius-lg);
+      max-width: 600px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .modal-header {
+      padding: var(--spacing-lg);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .modal-close {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #f5f5f5;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: var(--transition-base);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-close:hover {
+      background: #e0e0e0;
+      transform: rotate(90deg);
+    }
+
+    .modal-body {
+      padding: var(--spacing-lg);
+    }
+
+    .form-group {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .form-label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: 0.875rem;
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      font-size: 1rem;
+      font-family: inherit;
+      transition: var(--transition-base);
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    /* ========================================
+       NOTIFICATION
+    ======================================== */
+    .notification {
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      padding: 1rem 1.5rem;
+      background: white;
+      border-radius: var(--radius-md);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+      z-index: 10001;
+      animation: slideIn 0.4s ease;
+      border-left: 4px solid;
+      max-width: 350px;
+      font-weight: 500;
+    }
+
+    .notification.success { border-left-color: var(--primary); }
+    .notification.error { border-left-color: #f44336; }
+    .notification.info { border-left-color: var(--secondary); }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(400px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideOut {
+      from {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateX(400px);
+        opacity: 0;
+      }
+    }
+
+    /* ========================================
+       RESPONSIVE
+    ======================================== */
+    @media (max-width: 768px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .items-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tabs-header {
+        overflow-x: auto;
+      }
+
+      .tab-btn {
+        white-space: nowrap;
+      }
+
+      .nav-actions {
+        flex-wrap: wrap;
+      }
+    }
+
+    /* ===== OWNER REQUEST SECTION ===== */
+
+.owner-requests-section {
+  margin-top: 40px;
+  padding: 20px;
+  background: #f9fafb;
+  border-radius: 12px;
+}
+
+.owner-requests-section h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.requests-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.request-card {
+  background: white;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.2s ease;
+}
+
+.request-card:hover {
+  transform: translateY(-2px);
+}
+
+.request-info h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.request-info p {
+  margin: 6px 0 0;
+  color: #555;
+}
+
+.request-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-approve {
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-approve:hover {
+  background: #15803d;
+}
+
+.btn-reject {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-reject:hover {
+  background: #b91c1c;
+}
+
+.no-requests {
+  color: #777;
+  font-style: italic;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-content">
+      <div class="logo">
+        <span class="logo-icon">🎓</span>
+        <span>Campus<span style="color: var(--primary);">Rent</span></span>
+      </div>
+      <div class="nav-actions">
+        <button class="btn-primary" onclick="openAddItemModal()">+ Add New Item</button>
+        <button class="btn-outline" onclick="switchToUserDashboard()">Switch to User</button>
+        <div class="user-profile">
+          <div class="user-avatar">V</div>
+          <div>
+            <div style="font-weight: 600; font-size: 0.875rem;">Ayush Ojha</div>
+            <div style="font-size: 0.75rem; color: var(--text-light);">Owner</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- DASHBOARD CONTAINER -->
+  <main class="dashboard-container">
+    
+    <!-- HEADER -->
+    <div class="dashboard-header">
+      <h1 class="dashboard-title">Owner Dashboard</h1>
+      <p class="dashboard-subtitle">Manage your items, track rentals, and monitor earnings</p>
+    </div>
+
+    <!-- STATS OVERVIEW -->
+    <div class="stats-grid">
+      <div class="stat-card posted">
+        <div class="stat-icon">📦</div>
+        <div class="stat-number" id="totalPosted">0</div>
+        <div class="stat-label">Total Items Posted</div>
+        <div class="stat-change">+2 this month</div>
+      </div>
+
+      <div class="stat-card rented">
+        <div class="stat-icon">📋</div>
+        <div class="stat-number" id="totalRented">0</div>
+        <div class="stat-label">Currently Rented</div>
+        <div class="stat-change">Active rentals</div>
+      </div>
+
+      <div class="stat-card sold">
+        <div class="stat-icon">💰</div>
+        <div class="stat-number" id="totalSold">0</div>
+        <div class="stat-label">Items Sold</div>
+        <div class="stat-change">All time</div>
+      </div>
+
+      <div class="stat-card available">
+        <div class="stat-icon">✅</div>
+        <div class="stat-number" id="totalAvailable">0</div>
+        <div class="stat-label">Available Items</div>
+        <div class="stat-change">Ready to rent</div>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs-container">
+      <div class="tabs-header">
+        <button class="tab-btn active" onclick="switchTab('all' , event)">
+          All Items
+          <span class="tab-badge" id="allCount">0</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('rented' , event)">
+          Currently Rented
+          <span class="tab-badge" id="rentedCount" style="background: var(--secondary);">0</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('sold' , event)">
+          Sold Items
+          <span class="tab-badge" id="soldCount" style="background: var(--accent-orange);">0</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('available' , event)">
+          Available
+          <span class="tab-badge" id="availableCount" style="background: var(--accent-purple);">0</span>
+        </button>
+      </div>
+
+      <div class="tab-content">
+        <!-- ALL ITEMS TAB -->
+        <div class="tab-pane active" id="allTab">
+          <div class="items-grid" id="allItems">
+            <!-- Items will be loaded here -->
+          </div>
+        </div>
+
+        <!-- RENTED ITEMS TAB -->
+        <div class="tab-pane" id="rentedTab">
+          <div class="items-grid" id="rentedItems">
+            <!-- Rented items will be loaded here -->
+          </div>
+        </div>
+
+        <!-- SOLD ITEMS TAB -->
+        <div class="tab-pane" id="soldTab">
+          <div class="items-grid" id="soldItems">
+            <!-- Sold items will be loaded here -->
+          </div>
+        </div>
+
+        <!-- AVAILABLE ITEMS TAB -->
+        <div class="tab-pane" id="availableTab">
+          <div class="items-grid" id="availableItems">
+            <!-- Available items will be loaded here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ADD ITEM MODAL -->
+  <div id="addItemModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">📦 Add New Item</h2>
+        <button class="modal-close" onclick="closeAddItemModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="addItemForm">
+          <div class="form-group">
+            <label class="form-label">Item Name</label>
+            <input type="text" class="form-input" id="itemName" placeholder="e.g., HP Laptop" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Description</label>
+            <textarea class="form-textarea" id="itemDescription" placeholder="Describe your item..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Category</label>
+            <select class="form-select" id="itemCategory" required>
+              <option value="">Select Category</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Books">Books</option>
+              <option value="Lab Equipment">Lab Equipment</option>
+              <option value="Sports">Sports</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Price (₹/month)</label>
+            <input type="number" class="form-input" id="itemPrice" placeholder="1000" required min="1">
+          </div>
+
+        <div class="form-group">
+       <label class="form-label">Item Image</label>
+       <input type="file" class="form-input" id="itemImage" accept="image/*" required>
+       </div>
+
+
+          <button type="submit" class="btn-primary" style="width: 100%;">Add Item</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDIT ITEM MODAL -->
+  <div id="editItemModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">✏️ Edit Item</h2>
+        <button class="modal-close" onclick="closeEditItemModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="editItemForm">
+          <input type="hidden" id="editItemId">
+          
+          <div class="form-group">
+            <label class="form-label">Item Name</label>
+            <input type="text" class="form-input" id="editItemName" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Description</label>
+            <textarea class="form-textarea" id="editItemDescription" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Category</label>
+            <select class="form-select" id="editItemCategory" required>
+              <option value="Electronics">Electronics</option>
+              <option value="Books">Books</option>
+              <option value="Lab Equipment">Lab Equipment</option>
+              <option value="Sports">Sports</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Price (₹/month)</label>
+            <input type="number" class="form-input" id="editItemPrice" required min="1">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Status</label>
+            <select class="form-select" id="editItemStatus" required>
+              <option value="available">Available</option>
+              <option value="rented">Rented</option>
+              <option value="sold">Sold</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width: 100%;">Update Item</button>
+        </form>
+      </div>
+    </div>
+  </div>
+<section class="owner-requests-section">
+  <h2>Pending Rent Requests</h2>
+
+  <div id="ownerRequestsContainer" class="requests-grid">
+    <p class="no-requests">No pending requests</p>
+  </div>
+</section>
+
+<<script>
+let ownerItems = [];
+
+/* ================= SWITCH DASHBOARD ================= */
+function switchToUserDashboard() {
+  window.location.href = "dashboard.user.html";
+}
+
+/* ================= TAB SWITCH ================= */
+function switchTab(tabName, event) {
+
+  const button = event.currentTarget;  // 👈 FIX
+
+  document.querySelectorAll(".tab-btn").forEach(btn =>
+    btn.classList.remove("active")
+  );
+
+  document.querySelectorAll(".tab-pane").forEach(pane =>
+    pane.classList.remove("active")
+  );
+
+  button.classList.add("active");
+  document.getElementById(tabName + "Tab").classList.add("active");
+}
+document.addEventListener("DOMContentLoaded", function () {
+  const token = localStorage.getItem("access");
+
+  if (!token) {
+    window.location.href = "login.html";
+    return;
+  }
+});
+
+
+/* ================= LOAD OWNER ITEMS ================= */
+ async function loadOwnerItems() {
+  const token = localStorage.getItem("access");
+  if (!token) return;
+
+  try {
+    const response = await fetch(
+      "http://127.0.0.1:8000/api/items/?owner=me",
+      {
+        headers: { Authorization: "Bearer " + token },
+      }
+    );
+
+    if (!response.ok) {
+      console.error("Items load failed:", response.status);
+      return;
+    }
+
+    const data = await response.json();
+    ownerItems = Array.isArray(data) ? data : data.results || [];
+
+    // Corrected logic: Update stats first, then render
+    updateStats(ownerItems);
+
+    renderItems("allItems", ownerItems);
+    renderItems("availableItems", ownerItems.filter(i => i.is_available));
+    renderItems("rentedItems", ownerItems.filter(i => !i.is_available));
+    
+    // Note: If you have a 'sold' property in your API, filter it here
+    renderItems("soldItems", ownerItems.filter(i => i.status === 'sold'));
+
+  } catch (error) {
+    console.error("Load error:", error);
+  }
+}
+
+/* ================= UPDATE STATS (CORRECTED) ================= */
+function updateStats(items) {
+
+  const totalPosted = items.length;
+  const totalAvailable = items.filter(i => i.is_available).length;
+  const totalRented = items.filter(i => !i.is_available).length;
+
+  document.getElementById("totalPosted").textContent = totalPosted;
+  document.getElementById("totalAvailable").textContent = totalAvailable;
+  document.getElementById("totalRented").textContent = totalRented;
+  document.getElementById("totalSold").textContent = 0;
+
+  document.getElementById("allCount").textContent = totalPosted;
+  document.getElementById("availableCount").textContent = totalAvailable;
+  document.getElementById("rentedCount").textContent = totalRented;
+  document.getElementById("soldCount").textContent = 0;
+}
+
+
+/* ================= RENDER ITEMS ================= */
+function renderItems(containerId, itemsList) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  if (!itemsList.length) {
+    container.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-icon">📦</div>
+        <div class="empty-title">No Items Found</div>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = itemsList.map(item => `
+    <div class="item-card">
+      <div class="item-image">
+        ${item.image ? `<img src="${item.image}" style="width:100%;height:100%;object-fit:cover;">` : `<div style="font-size:3rem;">📦</div>`}
+      </div>
+      <div class="item-details">
+        <h3 class="item-title">${item.title}</h3>
+        <p class="item-description">${item.description}</p>
+        <div class="item-meta">
+          <div class="item-price">₹${item.price}/mo</div>
+          <div class="item-status ${item.is_available ? "status-available" : "status-rented"}">
+            ${item.is_available ? "Available" : "Rented"}
+          </div>
+        </div>
+        <div class="item-actions">
+          <button class="btn-small btn-delete" onclick="deleteItem(${item.id})">Delete</button>
+        </div>
+      </div>
+    </div>
+  `).join("");
+}
+
+/* ================= ADD ITEM ================= */
+document.getElementById("addItemForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+  const token = localStorage.getItem("access");
+  const formData = new FormData();
+  formData.append("title", document.getElementById("itemName").value);
+  formData.append("description", document.getElementById("itemDescription").value);
+  formData.append("price", document.getElementById("itemPrice").value);
+  formData.append("category", document.getElementById("itemCategory").value);
+  formData.append("image", document.getElementById("itemImage").files[0]);
+  formData.append("is_available", true);
+
+  try {
+    const response = await fetch("http://127.0.0.1:8000/api/items/", {
+      method: "POST",
+      headers: { Authorization: "Bearer " + token },
+      body: formData,
+    });
+
+    if (response.ok) {
+      closeAddItemModal();
+      await loadOwnerItems(); // Refresh items and stats
+      showNotification("Item added successfully!", "success");
+    } else {
+      const result = await response.json();
+      alert("Error: " + JSON.stringify(result));
+    }
+  } catch (error) {
+    console.error("Add error:", error);
+  }
+});
+
+/* ================= DELETE ITEM ================= */
+async function deleteItem(id) {
+  const token = localStorage.getItem("access");
+  if (!confirm("Delete this item?")) return;
+  await fetch(`http://127.0.0.1:8000/api/items/${id}/`, {
+    method: "DELETE",
+    headers: { Authorization: "Bearer " + token },
+  });
+  loadOwnerItems(); // Refresh items and stats
+}
+
+/* ================= LOAD CATEGORIES ================= */
+
+async function loadCategories() {
+  const token = localStorage.getItem("access");
+
+  try {
+    const response = await fetch(
+      "http://127.0.0.1:8000/api/categories/",
+      {
+        headers: {
+          "Authorization": "Bearer " + token
+        }
+      }
+    );
+
+    if (!response.ok) {
+      console.error("Categories load failed:", response.status);
+      return;
+    }
+
+    const categories = await response.json();
+
+    const categorySelect = document.getElementById("itemCategory");
+
+    categorySelect.innerHTML =
+      '<option value="">Select Category</option>';
+
+    categories.forEach(category => {
+      const option = document.createElement("option");
+      option.value = category.id;
+      option.textContent = category.name;
+      categorySelect.appendChild(option);
+    });
+
+  } catch (error) {
+    console.error("Error loading categories:", error);
+  }
+}
+
+
+/* ================= MODAL ================= */
+function openAddItemModal() {
+  document.getElementById("addItemModal").classList.add("active");
+}
+function closeAddItemModal() {
+  document.getElementById("addItemModal").classList.remove("active");
+  document.getElementById("addItemForm").reset();
+}
+
+/* ================= NOTIFICATION ================= */
+function showNotification(message, type = "info") {
+  const existing = document.querySelector(".notification");
+  if (existing) existing.remove();
+  const notification = document.createElement("div");
+  notification.className = `notification ${type}`;
+  notification.textContent = message;
+  document.body.appendChild(notification);
+  setTimeout(() => notification.remove(), 3000);
+}
+
+async function loadOwnerRequests() {
+
+  const token = localStorage.getItem("access");
+
+  const response = await fetch(
+    "http://127.0.0.1:8000/api/rentals/owner/requests/",
+    {
+      headers: {
+        "Authorization": "Bearer " + token
+      }
+    }
+  );
+
+  const data = await response.json();
+
+  const container = document.getElementById("ownerRequestsContainer");
+  container.innerHTML = "";
+
+  if (!data.length) {
+    container.innerHTML = "<h3>No pending requests</h3>";
+    return;
+  }
+
+  data.forEach(rental => {
+    container.innerHTML += `
+      <div class="request-card">
+        <h3>${rental.item}</h3>
+        <p>Requested by: ${rental.renter}</p>
+
+        <button onclick="handleRentalAction(${rental.id}, 'approve')">
+          Approve
+        </button>
+
+        <button onclick="handleRentalAction(${rental.id}, 'reject')">
+          Reject
+        </button>
+      </div>
+    `;
+  });
+}
+
+async function handleRentalAction(rentalId, action) {
+
+  const token = localStorage.getItem("access");
+
+  const response = await fetch(
+    `http://127.0.0.1:8000/api/rentals/action/${rentalId}/`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + token
+      },
+      body: JSON.stringify({ action })
+    }
+  );
+
+  if (response.ok) {
+    alert("Action completed");
+    loadOwnerRequests();
+     loadOwnerItems();
+  } else {
+    alert("Action failed");
+  }
+}
+
+
+/* ================= INIT ================= */
+document.addEventListener("DOMContentLoaded", () => {
+  loadOwnerItems();
+  loadCategories();
+  loadOwnerRequests();
+});
+</script>
+
+
+
+  
+
+  <div id="botIcon">🤖</div>
+
+<div id="chatbot">
+    <div class="header">
+        College Campus Bot
+        <span id="closeBtn">✖</span>
+    </div>
+    <div id="chatBody"></div>
+</div>
+<script src="script1.js"></script>
+</body>
+</html>

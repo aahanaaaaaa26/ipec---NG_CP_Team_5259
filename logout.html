@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile Dropdown with Logout</title>
+  
+  <style>
+    /* ========================================
+       USER PROFILE DROPDOWN STYLES
+    ======================================== */
+    .dashboard-actions {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .user-profile-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 1rem;
+      background: #f5f5f5;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .user-profile-nav:hover {
+      background: #e8f5e9;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid #4caf50;
+    }
+
+    .user-info-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .user-name {
+      font-weight: 700;
+      font-size: 0.875rem;
+      color: #1a1a1a;
+    }
+
+    .user-college {
+      font-size: 0.75rem;
+      color: #757575;
+    }
+
+    .user-rating {
+      font-size: 0.875rem;
+    }
+
+    .dropdown-arrow {
+      font-size: 0.75rem;
+      color: #4a4a4a;
+      transition: transform 0.3s ease;
+    }
+
+    .user-profile-nav.active .dropdown-arrow {
+      transform: rotate(180deg);
+    }
+
+    /* ========================================
+       DROPDOWN MENU
+    ======================================== */
+    .profile-dropdown {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+      min-width: 250px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .profile-dropdown.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid #e0e0e0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .dropdown-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid #4caf50;
+    }
+
+    .dropdown-user-info h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      color: #1a1a1a;
+    }
+
+    .dropdown-user-info p {
+      font-size: 0.875rem;
+      color: #757575;
+      margin: 0;
+    }
+
+    .dropdown-rating {
+      font-size: 0.75rem;
+      color: #4caf50;
+      margin-top: 0.25rem;
+    }
+
+    .dropdown-menu {
+      list-style: none;
+      padding: 0.5rem 0;
+      margin: 0;
+    }
+
+    .dropdown-item {
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #1a1a1a;
+    }
+
+    .dropdown-item:hover {
+      background: #f5f5f5;
+    }
+
+    .dropdown-item.logout {
+      color: #f44336;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .dropdown-item.logout:hover {
+      background: #ffebee;
+    }
+
+    .dropdown-icon {
+      font-size: 1.25rem;
+    }
+
+    /* Optional: Notification styles if you want to show messages */
+    .notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 1rem 1.5rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      z-index: 10000;
+      font-weight: 500;
+      border-left: 4px solid;
+      animation: slideIn 0.4s ease;
+    }
+
+    .notification.success { border-left-color: #4caf50; }
+    .notification.error { border-left-color: #f44336; }
+    .notification.info { border-left-color: #2196f3; }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(400px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- YOUR CORRECTED CODE -->
+  <div class="dashboard-actions">
+    
+    <div class="user-profile-nav" id="userProfileNav" onclick="toggleProfileDropdown(event)">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Ccircle cx='20' cy='20' r='20' fill='%234caf50'/%3E%3Ctext x='20' y='26' font-size='16' text-anchor='middle' fill='white' font-family='Arial'%3EA%3C/text%3E%3C/svg%3E" alt="User" class="user-avatar" />
+      <div class="user-info-nav">
+        <span class="user-name">Amit</span>
+        <span class="user-college">(IIT Delhi)</span>
+      </div>
+      <span class="user-rating">⭐⭐⭐⭐⭐</span>
+      <span class="dropdown-arrow">▼</span>
+      
+      <!-- DROPDOWN MENU -->
+          <span>My Profile</span>
+          </li>
+          <li class="dropdown-item" onclick="viewSettings()">
+            <span class="dropdown-icon">⚙️</span>
+            <span>Settings</span>
+          </li>
+          <li class="dropdown-item" onclick="viewEarnings()">
+         <div class="profile-dropdown" id="profileDropdown" onclick="event.stopPropagation()">
+        <div class="dropdown-header">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50'%3E%3Ccircle cx='25' cy='25' r='25' fill='%234caf50'/%3E%3Ctext x='25' y='33' font-size='20' text-anchor='middle' fill='white' font-family='Arial'%3EA%3C/text%3E%3C/svg%3E" alt="User" class="dropdown-avatar" />
+          <div class="dropdown-user-info">
+            <h3>Amit Kumar</h3>
+            <p>IIT Delhi</p>
+            <p class="dropdown-rating">⭐ 5.0 Rating</p>
+          </div>
+        </div>
+        <ul class="dropdown-menu">
+          <li class="dropdown-item" onclick="viewProfile()">
+            <span class="dropdown-icon">👤</span>
+           <span class="dropdown-icon">💰</span>
+            <span>Earnings</span>
+          </li>
+          <li class="dropdown-item" onclick="viewNotifications()">
+            <span class="dropdown-icon">🔔</span>
+            <span>Notifications</span>
+          </li>
+          <li class="dropdown-item" onclick="viewHelp()">
+            <span class="dropdown-icon">❓</span>
+            <span>Help & Support</span>
+          </li>
+          <li class="dropdown-item logout" onclick="logout()">
+            <span class="dropdown-icon">🚪</span>
+            <span>Logout</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ========================================
+    // TOGGLE DROPDOWN
+    // ========================================
+    function toggleProfileDropdown(event) {
+      event.stopPropagation();
+      const profileNav = document.getElementById('userProfileNav');
+      const dropdown = document.getElementById('profileDropdown');
+      
+      profileNav.classList.toggle('active');
+      dropdown.classList.toggle('active');
+    }
+
+    // ========================================
+    // CLOSE DROPDOWN WHEN CLICKING OUTSIDE
+    // ========================================
+    document.addEventListener('click', function(event) {
+      const profileNav = document.getElementById('userProfileNav');
+      const dropdown = document.getElementById('profileDropdown');
+      
+      if (!profileNav.contains(event.target)) {
+        profileNav.classList.remove('active');
+        dropdown.classList.remove('active');
+      }
+    });
+
+    // ========================================
+    // DROPDOWN MENU ACTIONS
+    // ========================================
+    function viewProfile() {
+      showNotification('Opening your profile...', 'info');
+      closeDropdown();
+      // Add your profile page navigation here
+      // window.location.href = 'profile.html';
+    }
+
+    function viewSettings() {
+      showNotification('Opening settings...', 'info');
+      closeDropdown();
+      // Add your settings page navigation here
+      // window.location.href = 'settings.html';
+    }
+
+    function viewEarnings() {
+      showNotification('Opening earnings dashboard...', 'info');
+      closeDropdown();
+      // Add your earnings page navigation here
+      // window.location.href = 'earnings.html';
+    }
+
+    function viewNotifications() {
+      showNotification('Opening notifications...', 'info');
+      closeDropdown();
+      // Add your notifications page navigation here
+      // window.location.href = 'notifications.html';
+    }
+
+    function viewHelp() {
+      showNotification('Opening help & support...', 'info');
+      closeDropdown();
+      // Add your help page navigation here
+      // window.location.href = 'help.html';
+    }
+
+    // ========================================
+    // LOGOUT FUNCTION
+    // ========================================
+    function logout() {
+      if (confirm('Are you sure you want to logout?')) {
+        showNotification('Logging out...', 'success');
+        
+        // Clear user session data
+        localStorage.removeItem('campusrent_user');
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('userToken');
+        
+        // Redirect to home page after 1 second
+        setTimeout(function() {
+          window.location.href = 'index.html'; // Change to your home page URL
+        }, 1000);
+      }
+      closeDropdown();
+    }
+
+    // ========================================
+    // CLOSE DROPDOWN HELPER
+    // ========================================
+    function closeDropdown() {
+      const profileNav = document.getElementById('userProfileNav');
+      const dropdown = document.getElementById('profileDropdown');
+      profileNav.classList.remove('active');
+      dropdown.classList.remove('active');
+    }
+
+    // ========================================
+    // NOTIFICATION FUNCTION
+    // ========================================
+    function showNotification(message, type = 'info') {
+      // Remove existing notification if any
+      const existing = document.querySelector('.notification');
+      if (existing) existing.remove();
+
+      // Create new notification
+      const notification = document.createElement('div');
+      notification.className = `notification ${type}`;
+      notification.textContent = message;
+
+      document.body.appendChild(notification);
+
+      // Auto remove after 3 seconds
+      setTimeout(function() {
+        notification.style.animation = 'slideOut 0.4s ease';
+        setTimeout(function() {
+          notification.remove();
+        }, 400);
+      }, 3000);
+    }
+  </script>
+
+</body>
+</html>
